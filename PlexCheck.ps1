@@ -63,7 +63,7 @@ param(
 #region Associated Files
 if (-not (Get-Module Get-CredentialFromWindowsCredentialManager)) {
     Try {
-        Import-Module C:\Users\thomas\Documents\WindowsPowerShell\Modules\Get-CredentialFromWindowsCredentialManager.psm1 -ErrorAction Stop
+        Import-Module C:\Users\[username]\Documents\WindowsPowerShell\Modules\Get-CredentialFromWindowsCredentialManager.psm1 -ErrorAction Stop
     } Catch {
         Write-Host "Failed to load Get-CredentialFromWindowsCredentialManager.psm1. Aborting."
         Exit
