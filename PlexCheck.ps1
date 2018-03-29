@@ -13,8 +13,7 @@ PS C:\>PlexCheck.ps1 -Token xx11xx11xx1100xx0x01 -Url 10.0.0.100 -Port 12345 -Da
 .NOTES
 To add credentials open up Control Panel>User Accounts>Credential Manager and click "Add a gereric credential". 
 The "Internet or network address" field will be the Name required by the Cred param (default: "PlexCheck").
-Requires StoredCredential.psm1 from https://gist.github.com/toburger/2947424, which in turn was adapted from
-http://stackoverflow.com/questions/7162604/get-cached-credentials-in-powershell-from-windows-7-credential-manager
+Requires Get-CredentialFromWindowsCredentialManager.ps1 from https://gist.github.com/40a/7892466
 #>
 param(
     # Required: specify your Plex Token
