@@ -242,16 +242,15 @@ $credentials = Get-StoredCredential -Name $cred
     
 # If not otherwise specified, set the To address the same as the From
 if ($EmailTo -eq 'default') {
-    # $EmailTo = $credentials.UserName
-    # $EmailToList = Get-Content c:\scripts\emails.txt
-    $EmailToList = Get-Content c:\scripts\emailmeonly.txt
+    # $EmailTo = $credentials.UserName  # Use this line to use the default settings of sending email to sender address only.
+    $EmailTo = Get-Content c:\scripts\emails.txt   #Use this line to send to list of email addresses in list
 }
 $subject = "Plex Additions from $startDate-$endDate"
 
-foreach ($EmailTo in $EmailToList)
+foreach ($Email in $EmailTo)
     {
 
 if (-not($PreventSendingEmptyList -and (($movieCount+$tvCount) -eq 0))) {
-    Send-MailMessage -From $($credentials.UserName) -to $EmailTo -SmtpServer $SMTPserver -Port $SMTPport -UseSsl -Credential $credentials -Subject $subject -Body $body -BodyAsHtml
+    Send-MailMessage -From $($credentials.UserName) -to $Email -SmtpServer $SMTPserver -Port $SMTPport -UseSsl -Credential $credentials -Subject $subject -Body $body -BodyAsHtml
     }
 }
