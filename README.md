@@ -31,11 +31,13 @@ Open a Powershell prompt and run the command
 Store the credentials of the email address you want to send the email from in Windows Credential Manager. Instructions here. You should store them with "PlexCheck" as the "Internet or network address" value to avoid having to specify a credential name when running the script. For username and password, enter the credentials for the email address you want to send the email as.
 
 Acquire an apikey from http://www.omdbapi.com/apikey.aspx
+
 Run the script! You can run from a Powershell prompt, or by right-clicking and selecting Run.
 
 Default behavior:
 
 .\PlexCheck.ps1
+
 This will run the script with default values:
 
 It will assume you're running it from the same box that your Media Server is running on. As such, the default IP is 127.0.0.1.
@@ -46,6 +48,7 @@ This defaults to Gmail's SMTP server settings, but that can be overridden with p
 This will send over SSL, and this can't be overridden. Just do it.
 This defaults to a 14-day lookback period, but that can be changed, if that's what you're into.
 Here's an example of how to run it with all the values changed:
+
 
 
 .\PlexCheck.ps1 -cred foo -url 10.0.0.100 -port 12345 -days 14 -emailTo 'test@email.com' -smtpServer 'smtp.server.com' -smtpPort 132
